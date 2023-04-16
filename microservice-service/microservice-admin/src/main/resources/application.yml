@@ -1,0 +1,7 @@
+server:
+  port: 8001
+  servlet:
+    context-path: /microservice-admin
+spring:
+  application:
+    name: microservice-admin

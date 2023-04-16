@@ -1,0 +1,22 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+      config:
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+    gateway:
+      routes:
+        - id: microservice-login
+          uri: lb://microservice-login
+          predicates:
+            - Path=/microservice-login/loginController/**
+        - id: microservice-admin
+          uri: lb://microservice-admin
+          predicates:
+            - Path=/microservice-admin/AdminController/**
+

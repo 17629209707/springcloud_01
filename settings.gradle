@@ -1,0 +1,9 @@
+rootProject.name = 'springcloud_01'
+include 'microservice-gateway'
+include 'microservice-register'
+include 'microservice-service'
+include 'microservice-service:microservice-admin'
+findProject(':microservice-service:microservice-admin')?.name = 'microservice-admin'
+include 'microservice-service:microservice-login'
+findProject(':microservice-service:microservice-login')?.name = 'microservice-login'
+
