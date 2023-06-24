@@ -2,12 +2,23 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: localhost:8848
+        server-addr: http://localhost:8848
         username: nacos
         password: nacos
       config:
-        server-addr: localhost:8848
+        server-addr: http://localhost:8848
         username: nacos
         password: nacos
         file-extension: yml
         group: DEFAULT_GROUP
+management:
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans
+      connect-timeout: 3
+  tracing:
+    sampling:
+      probability: 1
+logging:
+  pattern:
+    level: ${spring.application.name:},%X{traceId:-},%X{spanId:-} %5p

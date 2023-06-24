@@ -5,3 +5,12 @@ server:
 spring:
   application:
     name: microservice-admin
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/db1
+    username: postgres
+    password: root
+mybatis-plus:
+  type-aliases-package: com.xingyu.pojo
+  mapper-locations: classpath:/mapper/*Mapper.xml
